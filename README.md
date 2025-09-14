@@ -11,8 +11,8 @@
 * * `yii fake-data/user`
 
 ### ЗАПУСК
-* `php -S127.0.0.1:9000 -tfrontend/web`
-* `php -S127.0.0.1:9001 -tbackend/web`
+* `php -S127.0.0.1:9001 -tfrontend/web`
+* `php -S127.0.0.1:9000 -tbackend/web`
 
 ### ТЕСТИРОВАНИЕ
 * `http://127.0.0.1:9000`

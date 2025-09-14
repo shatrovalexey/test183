@@ -112,6 +112,28 @@ class TranslatorController extends ActiveController
     }
 
     /**
+    * С какого на какой язык переводят переводчики
+    *
+    * @param int $translator_id
+    */
+    public function actionLanguages()
+    {
+        return Profile::find()
+            ->innerJoin('language l1', 'l1.id = profile.language1_id')
+            ->innerJoin('language l2', 'l2.id = profile.language2_id')
+            ->select([
+                'l1.id AS language1_id'
+                , 'l2.id AS language2_id'
+                , 'l1.title AS language1_title'
+                , 'l2.title AS language2_title'
+                ,
+            ])
+            ->distinct()
+            ->asArray()
+            ->all();
+    }
+
+    /**
     * Рабочее расписание переводчика по переводу с языка1 на язык2 или наоборот
     *
     * @param int $language1_id
@@ -132,7 +154,7 @@ WHERE
     (`p1`.`language1_id` IN(:language1_id, :language2_id))
         AND (`p1`.`language2_id` IN (:language1_id, :language2_id))
 ORDER BY
-	1 ASC;
+    1 ASC;
         ')->bindValues([':language1_id' => $language1_id, ':language2_id' => $language2_id,])->queryAll();
     }
 

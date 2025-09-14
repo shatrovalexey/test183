@@ -4,8 +4,10 @@
 $this->title = '3.4 как отображаете нужные данные переводчиков на экране через views (здесь показать применение Vue js)';
 ?>
 <div class="site-index">
-    <div id="translators" data-src="http://127.0.0.1:9000/translator/">
-        <h2>Список переводчиков</h2>
+    <details id="translators" data-src="http://127.0.0.1:9000/translator/" open>
+        <summary>
+            <h2>Переводчики</h2>
+        </summary>
         
         <div v-if="loading" class="loading">Загрузка...</div>
         <div v-else-if="error" class="error">
@@ -60,7 +62,7 @@ $this->title = '3.4 как отображаете нужные данные пе
                 </details>
             </li>
         </ul>
-    </div>
+    </details>
 </div>
 <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 <script src="/js/script.js"></script>

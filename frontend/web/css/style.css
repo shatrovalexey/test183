@@ -1,3 +1,7 @@
+.container {
+    margin: 0;
+    padding: 0 5px !important;
+}
 .translator-list li {
     list-style-type: none;
     padding-left: 5px;
@@ -14,14 +18,14 @@
 }
 .profile-list:before
 , .profile-list-language-pair-schedule:before {
-	display: block;
+    display: block;
     content: attr(data-label) ":";
 }
 .profile-list-language-pair-schedule {
     display: block;
 }
 .profile-list-language-pair-schedule li {
-	display: inline-block;
+    display: inline-block;
     font-family: Tahoma;
     border: 1px silver solid;
     padding: 0 5px;
@@ -30,4 +34,14 @@
 }
 .profile-list-language-pair-schedule li[data-is_vikhodnoy="1"] {
     background-color: pink;
+}
+#translators > summary h2 {
+    display: inline-block;
+}
+.translator-list > li > details > summary
+, .profile-list-language-pair li {
+    font-weight: bold;
+}
+.profile-list-language-pair li {
+    color: navy;
 }

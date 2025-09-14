@@ -5,7 +5,7 @@
 * `composer install`
 * `yii init`
 * настроить доступ к СУБД
-** `yii migrate`
+* * `yii migrate`
 * генерация данных:
 * * `yii fake-data/user-down`
 * * `yii fake-data/user`

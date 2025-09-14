@@ -7,8 +7,8 @@
 * настроить доступ к СУБД
 ** `yii migrate`
 * генерация данных:
-** `yii fake-data/user-down`
-** `yii fake-data/user`
+* * `yii fake-data/user-down`
+* * `yii fake-data/user`
 
 ### ЗАПУСК
 * `php -S127.0.0.1:9000 -tfrontend/web`

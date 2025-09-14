@@ -16,7 +16,7 @@
 
 ### ТЕСТИРОВАНИЕ
 * `http://127.0.0.1:9000`
-* файл `test183.postman_collection` для 'Postman'
+* файл `test183.postman_collection.json` для 'Postman'
 
 ### АВТОР
 * Шатров Алексей Сергеевич <mail@ashatrov.ru>

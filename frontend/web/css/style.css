@@ -14,17 +14,14 @@
 }
 .profile-list:before
 , .profile-list-language-pair-schedule:before {
+	display: block;
     content: attr(data-label) ":";
 }
 .profile-list-language-pair-schedule {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: normal;
-    align-items: normal;
-    align-content: normal;
+    display: block;
 }
 .profile-list-language-pair-schedule li {
+	display: inline-block;
     font-family: Tahoma;
     border: 1px silver solid;
     padding: 0 5px;

@@ -1,0 +1,156 @@
+{
+	"info": {
+		"_postman_id": "bcff9536-22cf-477d-8822-0b899b20ed35",
+		"name": "test183",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "40039781",
+		"_collection_link": "https://local8-5977.postman.co/workspace/Local-Workspace~24bf8700-ad76-494d-8236-636eeeb9a5e4/collection/40039781-bcff9536-22cf-477d-8822-0b899b20ed35?action=share&source=collection_link&creator=40039781"
+	},
+	"item": [
+		{
+			"name": "С какого на какой язык переводит переводчик",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:9000/translator/1036/profile",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "9000",
+					"path": [
+						"translator",
+						"1036",
+						"profile"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Список перевочиков с указанного языка или наоборот",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:9000/translator/lang/297",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "9000",
+					"path": [
+						"translator",
+						"lang",
+						"297"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Рабочее расписание переводчика по переводу с языка1 на язык2 или наоборот",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:9000/translator/lang/297/292",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "9000",
+					"path": [
+						"translator",
+						"lang",
+						"297",
+						"292"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Расписание, когда П переводит с Я1 В Я2",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:9000/translator/schedule/995/297/291",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "9000",
+					"path": [
+						"translator",
+						"schedule",
+						"995",
+						"297",
+						"291"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Список переводчиков",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:9000/translator/list",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "9000",
+					"path": [
+						"translator",
+						"list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Список языков",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:9000/translator/language",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "9000",
+					"path": [
+						"translator",
+						"language"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

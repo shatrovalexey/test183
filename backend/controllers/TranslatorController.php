@@ -130,7 +130,9 @@ FROM
             ON (`s1`.`profile_id` = `p1`.`id`)
 WHERE
     (`p1`.`language1_id` IN(:language1_id, :language2_id))
-        AND (`p1`.`language2_id` IN (:language1_id, :language2_id));
+        AND (`p1`.`language2_id` IN (:language1_id, :language2_id))
+ORDER BY
+	1 ASC;
         ')->bindValues([':language1_id' => $language1_id, ':language2_id' => $language2_id,])->queryAll();
     }
 

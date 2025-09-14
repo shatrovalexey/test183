@@ -15,7 +15,7 @@
 * `php -S127.0.0.1:9000 -tbackend/web`
 
 ### ТЕСТИРОВАНИЕ
-* `http://127.0.0.1:9000`
+* `http://127.0.0.1:9001`
 * файл `test183.postman_collection.json` для 'Postman'
 
 ### АВТОР

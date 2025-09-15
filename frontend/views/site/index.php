@@ -31,7 +31,7 @@ $this->title = '3.4 как отображаете нужные данные пе
                             <details
                                 class="profile-list-languages"
                                 @toggle="fetchSchedule(translation, $event)"
-                                :data-src="'http://127.0.0.1:9000/translator/schedule/' + translator.translator_id + '/' + translation.language1_id + '/' + translation.language2_id"
+                                :data-src="`http://127.0.0.1:9000/translator/schedule/${translator.translator_id}/${translation.language1_id}/${translation.language2_id}`"
                             >
                                 <summary>
                                     <ul class="profile-list-language-pair">

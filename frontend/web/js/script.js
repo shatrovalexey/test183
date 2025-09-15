@@ -4,10 +4,11 @@ const cssSelectorTrans = "#translators";
 createApp({
     setup() {
         const translatorsObj = document.querySelector(cssSelectorTrans);
-        const translators = ref([]);
-        const error = ref(null);
-        const loading = ref(true);
-        const fetchData = url => fetch(url).then(data => data.json());
+        const [translators, error, loading, fetchData,] = [
+            ... [[], null, true,].map(value => ref(value))
+            , url => fetch(url).then(data => data.json())
+            ,
+        ];
         const fetchTranslators = () => {
             loading.value = true;
 
@@ -17,34 +18,27 @@ createApp({
                 .catch(err => error.value = err.message)
                 .finally(() => loading.value = false);
         };
-        const fetchProfile = (translator, evt) => {
-            const { open, dataset: { src } } = evt.target;
+        const fetchProfile = (translator, {target: { open, dataset: { src } },}) => {
+            if (!open || translator.loaded) return;
 
-            if (open && !translator.loaded) {
-                translator.loading = true;
-                fetchData(src)
-                    .then(data => {
-                        translator.profile = data
-                            .map(translation => ({...translation, schedule: null, scheduleLoaded: false, scheduleLoading: false}));
-                        translator.loaded = true;
-                    })
-                    .catch(exception => translator.error = exception.message)
-                    .finally(() => translator.loading = false);
-            }
+            translator.loading = true;
+
+            fetchData(src)
+                .then(data => [translator.profile, translator.loaded,] = [
+                    data.map(translation => ({...translation, schedule: null, scheduleLoading: false, scheduleLoaded: false})), true,
+                ])
+                .catch(exception => translator.error = exception.message)
+                .finally(() => translator.loading = false);
         };
-        const fetchSchedule = (translation, evt) => {
-            const { open, dataset: { src } } = evt.target;
+        const fetchSchedule = (translation, {target: { open, dataset: { src } },}) => {
+            if (!open || translation.scheduleLoaded) return;
 
-            if (open && !translation.scheduleLoaded) {
-                translation.scheduleLoading = true;
-                fetchData(src)
-                    .then(data => {
-                        translation.schedule = data;
-                        translation.scheduleLoaded = true;
-                    })
-                    .catch(exception => console.error(`Ошибка загрузки расписания: ${exception}`))
-                    .finally(() => translation.scheduleLoading = false);
-            }
+            translation.scheduleLoading = true;
+
+            fetchData(src)
+                .then(data => [translation.schedule, translation.scheduleLoaded,] = [data, true,])
+                .catch(exception => console.error(exception))
+                .finally(() => translation.scheduleLoading = false);
         };
         
         onMounted(fetchTranslators);

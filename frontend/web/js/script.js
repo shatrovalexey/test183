@@ -13,9 +13,10 @@ createApp({
             loading.value = true;
 
             fetchData(translatorsObj.dataset.src)
-                .then(data => translators.value = data
-                    .map(translator => ({... translator, profile: null, loading: false, error: null, loaded: false})))
-                .catch(err => error.value = err.message)
+                .then(data => {
+					translators.value = data.map(translator => ({... translator, profile: null, loading: false, error: null, loaded: false}));
+				})
+                .catch(exception => error.value = exception)
                 .finally(() => loading.value = false);
         };
         const fetchProfile = (translator, {target: { open, dataset: { src } },}) => {
@@ -27,7 +28,7 @@ createApp({
                 .then(data => [translator.profile, translator.loaded,] = [
                     data.map(translation => ({...translation, schedule: null, scheduleLoading: false, scheduleLoaded: false})), true,
                 ])
-                .catch(exception => translator.error = exception.message)
+                .catch(exception => translator.error = exception)
                 .finally(() => translator.loading = false);
         };
         const fetchSchedule = (translation, {target: { open, dataset: { src } },}) => {

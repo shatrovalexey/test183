@@ -21,7 +21,7 @@ class TranslatorController extends ActiveController
         header("Access-Control-Allow-Origin: *");
         header("Access-Control-Allow-Methods: POST, GET");
 
-        return parent::beforeAction($action); // Продолжаем обычную обработку
+        return parent::beforeAction($action);
     }
 
     public function behaviors()
@@ -79,7 +79,7 @@ class TranslatorController extends ActiveController
     public function actionSchedule(int $translator_id, int $language1_id, int $language2_id)
     {
         return Schedule::find()
-            ->select(['profile_id', 'date_at', '(dayofweek(date_at) IN (1, 7)) is_vikhodnoy',])
+            ->select(['profile_id', 'date_at', 'is_vikhodnoy',])
             ->innerJoin('profile', 'schedule.profile_id = profile.id')
             ->where([
                 'profile.user_id' => $translator_id
@@ -144,7 +144,7 @@ class TranslatorController extends ActiveController
         return Yii::$app->db->createCommand('
 SELECT
     `s1`.`date_at`
-    , (dayofweek(`s1`.`date_at`) IN (1, 7)) AS `is_vikhodnoy`
+    , `s1`.`is_vikhodnoy`
 FROM
     `profile` AS `p1`
     
@@ -169,7 +169,7 @@ ORDER BY
 SELECT
     `p1`.`user_id` AS `translator_id`
     , `s1`.`date_at`
-    , (dayofweek(`s1`.`date_at`) IN (1, 7)) AS `is_vikhodnoy`
+    , `s1`.`is_vikhodnoy`
 FROM
     `profile` AS `p1`
     

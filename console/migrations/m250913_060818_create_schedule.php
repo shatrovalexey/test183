@@ -18,6 +18,12 @@ class m250913_060818_create_schedule extends Migration
             ,
         ]);
 
+        $this->execute('
+ALTER TABLE
+		{{%schedule}}
+ADD COLUMN `is_vikhodnoy` TINYINT UNSIGNED GENERATED ALWAYS AS (dayofweek(`date_at`) in (1,7));
+		');
+
         $this->createIndex(
             'idx-schedule_profile_id_date_at'
             , '{{%schedule}}'
